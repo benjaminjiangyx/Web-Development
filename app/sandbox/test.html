@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <h2 id="title">Beeep</h2>
+        <p id="counter">0</p>
+        <button id="incrementBtn">Add 1</button>
+
+        <script>
+            const counter = document.getElementById("counter");
+            const btn = document.getElementById("incrementBtn");
+            const title = document.getElementById("title")
+
+            let count = 0;
+
+            // Event listener
+            btn.addEventListener("click", () => {
+                count += 1;
+                counter.innerHTML = count;
+                title.style.color = "red"
+            });
+        </script>
+    </body>
+</html>

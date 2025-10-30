@@ -1,4 +1,16 @@
-import type { Coffee } from "./data";
+import Image from "next/image";
+import { coffeeImageMap } from "./images";
+
+type Coffee = {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  rating: number;
+  votes: number;
+  available: boolean;
+  popular?: boolean;
+};
 
 type Props = {
   coffee: Coffee;
@@ -9,17 +21,13 @@ export function CoffeeCard({ coffee }: Props) {
     <article className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
       <div className="relative">
         {/* Image */}
-        <img
-          src={coffee.image}
+        <Image
+          src={coffeeImageMap[coffee.image] ?? "/coffee/mug.svg"}
           alt={coffee.name}
           className="h-44 w-full object-cover"
-          loading="lazy"
-          onError={(e) => {
-            const img = e.currentTarget as HTMLImageElement;
-            if (img.dataset.fallbackApplied === "true") return;
-            img.dataset.fallbackApplied = "true";
-            img.src = "/window.svg";
-          }}
+          width={640}
+          height={176}
+          priority={false}
         />
 
         {/* Popular badge */}

@@ -14,6 +14,12 @@ export function CoffeeCard({ coffee }: Props) {
           alt={coffee.name}
           className="h-44 w-full object-cover"
           loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.dataset.fallbackApplied === "true") return;
+            img.dataset.fallbackApplied = "true";
+            img.src = "/window.svg";
+          }}
         />
 
         {/* Popular badge */}

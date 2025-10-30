@@ -54,7 +54,6 @@ export default function Page() {
             <div style={{ width: '100%', maxWidth: 480 }}>
               <h1 style={{ textAlign: 'left', margin: '8px 0 12px', fontSize: 20, fontWeight: 700 }}>Flappy Bird</h1>
               <FlappyGame />
-              <FlappyGame />
             </div>
           </div>
         </section>
